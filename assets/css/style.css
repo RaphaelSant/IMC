@@ -10,7 +10,12 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
   padding: 0;
   background: var(--primary-color);
   font-family: 'Open sans', sans-serif;
@@ -23,11 +28,36 @@ h1, h3 {
 }
 
 .container {
-  max-width: 640px;
+  width: 70%;
   margin: 50px auto;
   background: #fff;
   padding: 20px;
   border-radius: 10px;
+}
+
+.table-imc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-imc table {
+  background: rgb(235, 235, 235);
+  width: 100%;
+  text-align: center;
+  color: var(--primary-color);
+  border-radius: 15px;
+}
+
+tr:nth-child(even) {
+  background: var(--primary-color-darker);
+  color: rgb(235, 235, 235);
+}
+
+
+
+.table-imc table th, td {
+  padding: 5px;
 }
 
 .imc-container {
@@ -46,6 +76,8 @@ form input {
   font-size: 24px;
   height: 50px;
   padding: 0 20px;
+  border-radius: 15px;
+  width: 90%;
 }
 
 form input:focus {
@@ -61,18 +93,40 @@ form button {
   height: 50px;
   cursor: pointer;
   margin-top: 30px;
+  border-radius: 15px;
 }
 
 form button:hover {
   background: var(--primary-color-darker);
 }
 
+.form-container, .form-inter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-inter {
+  flex-direction: column;
+  text-align: center;
+}
+
+.calculo-area {
+  background: rgb(224, 224, 224);
+  padding: 25px;
+  margin: 10px 0px 0px 0px;
+  border-radius: 15px;
+  text-align: center;
+}
+
 .paragrafro-resultado, .bad {
   background: rgb(7, 145, 7);
   padding: 10px 20px;
   text-align: center;
+  border-radius: 5px;
 }
 
 .bad {
   background: rgb(216, 90, 52);
+  border-radius: 5px;
 }

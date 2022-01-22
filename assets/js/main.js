@@ -21,10 +21,12 @@ form.addEventListener('submit', (evento) => {
 
     const imc = getIMC(peso, altura);
     const nivelImc = getNivelIMC(imc);
+    const pesoIdea = pesoIdeal(altura);
 
-    const msg = `Seu IMC é ${imc} (${nivelImc}).`;
+    const msg1 = `Seu IMC é ${imc} (${nivelImc}).`;
+    const msg2 = `${pesoIdea}`;
 
-    setResultado(msg, true);
+    setResultado(msg1, msg2, true);
 });
 
 /*
@@ -53,23 +55,86 @@ function getIMC(peso, altura) {
     return imc.toFixed(2);
 }
 
+function pesoIdeal (altura) {
+    if (altura >= 2) {
+        return "Seu peso ideal esta entre 75kg e 100kg";
+    } else if (altura >= 1.98) {
+        return "Seu peso ideal esta entre 73kg e 98kg";
+    } else if (altura >= 1.96) {
+        return "Seu peso ideal esta entre 72kg e 96kg";
+    } else if (altura >= 1.94) {
+        return "Seu peso ideal esta entre 70kg e 94kg";
+    } else if (altura >= 1.92) {
+        return "Seu peso ideal esta entre 69kg e 92kg";
+    } else if (altura >= 1.90) {
+        return "Seu peso ideal esta entre 67kg e 90kg";
+    } else if (altura >= 1.88) {
+        return "Seu peso ideal esta entre 66kg e 88kg";
+    } else if (altura >= 1.86) {
+        return "Seu peso ideal esta entre 65kg e 86kg";
+    } else if (altura >= 1.84) {
+        return "Seu peso ideal esta entre 63kg e 84kg";
+    } else if (altura >= 1.82) {
+        return "Seu peso ideal esta entre 62kg e 82kg";
+    } else if (altura >= 1.80) {
+        return "Seu peso ideal esta entre 60kg e 81kg";
+    } else if (altura >= 1.78) {
+        return "Seu peso ideal esta entre 59kg e 79kg";
+    } else if (altura >= 1.76) {
+        return "Seu peso ideal esta entre 58kg e 77kg";
+    } else if (altura >= 1.74) {
+        return "Seu peso ideal esta entre 57kg e 75kg";
+    } else if (altura >= 1.72) {
+        return "Seu peso ideal esta entre 55kg e 73kg";
+    } else if (altura >= 1.70) {
+        return "Seu peso ideal esta entre 54kg e 72kg";
+    } else if (altura >= 1.68) {
+        return "Seu peso ideal esta entre 53kg e 70kg";
+    } else if (altura >= 1.66) {
+        return "Seu peso ideal esta entre 51kg e 68kg";
+    } else if (altura >= 1.64) {
+        return "Seu peso ideal esta entre 50kg e 67kg";
+    } else if (altura >= 1.62) {
+        return "Seu peso ideal esta entre 49kg e 65kg";
+    } else if (altura >= 1.60) {
+        return "Seu peso ideal esta entre 48kg e 64kg";
+    } else if (altura >= 1.58) {
+        return "Seu peso ideal esta entre 47kg e 62kg";
+    } else if (altura >= 1.56) {
+        return "Seu peso ideal esta entre 46kg e 60kg";
+    } else if (altura >= 1.54) {
+        return "Seu peso ideal esta entre 44kg e 59kg";
+    } else if (altura >= 1.52) {
+        return "Seu peso ideal esta entre 43kg e 57kg";
+    } else if (altura >= 1.50) {
+        return "Seu peso ideal esta entre 42kg e 56kg";
+    }
+}
+
 function criaParagrafo() {
     const p = document.createElement('p');
     return p;
 }
 
-function setResultado(msg, isValid) {
+function setResultado(msg, msg2, isValid) {
     const resultado = document.querySelector('#resultado');
+    const resultado2 = document.querySelector('#resultado');
     resultado.innerHTML = '';
 
     const p = criaParagrafo();
+    const p2 = criaParagrafo();
 
     if (isValid) {
         p.classList.add('paragrafro-resultado');
+        p2.classList.add('paragrafro-resultado');
     } else {
         p.classList.add('bad');
+        p2.classList.add('bad');
     }
 
     p.innerHTML = msg;
+    p2.innerHTML = msg2;
+
     resultado.appendChild(p);
+    resultado2.appendChild(p2);
 }
